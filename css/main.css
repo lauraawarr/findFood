@@ -1,0 +1,274 @@
+/* TAGS */
+a {
+	text-decoration: none;
+	color: #000;
+}
+
+html{
+	margin: 0;
+	/*width: 100vw;
+	height: 100vh;*/
+
+	background: #fff;
+	/*overflow-x: hidden;*/
+}
+
+body {
+	position: relative;
+	margin: auto;
+	margin-bottom: 1em;
+	/*overflow: hidden;*/
+	background-color: #f8d408;
+	background-image: url('../images/leaf.png');
+	background-repeat: no-repeat;
+	background-size: 4em;
+	width: 100vw;
+	max-width: 650px;
+	min-height: 100vh;
+	font-family: 'Poppins', sans-serif;
+	box-shadow: 4px 4px 10px #5c5c5c;
+}
+
+body > * {
+	transition: all 500ms;
+}
+
+/* IDs */
+#head-bar{
+	display: block;
+	height: 5em;
+	width: 650px;
+	position: fixed;
+	background-color: #f8d408;
+	background-image: url('../images/leaf.png');
+	background-repeat: no-repeat;
+	background-size: 4em;
+}
+
+#main .filter{
+	position: absolute;
+	top: 1em;
+	right: 1em;
+	text-align: right;
+}
+
+#main .filter select{
+    margin: 1em;
+    width: 8em;
+    font-size: 1em;
+}
+
+#main .output {
+	padding-bottom: 2em;
+}
+
+#overlay{
+	position: absolute;
+	background-color: #c12926;
+	z-index: 1000;
+	top: 0;
+	width: 100vw;
+	height: 100vh;
+	text-align: center;
+	max-width: 650px;
+
+	display: -webkit-box;
+	display: -ms-flex;
+	display: -webkit-flex;
+	display: flex;
+
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+
+	transition: all 1000ms;
+}
+
+#overlay .backing {
+	position: absolute;
+	z-index: -1;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #c12926;
+	opacity: 0.75;
+}
+
+#overlay .output {
+	color: #fbab19;
+}
+
+#overlay-img{
+	position: absolute;
+	z-index: -1;
+	top: 0;
+	left: 0;
+	height: 100vh;
+	width: 100vw;
+
+	background: url('../images/food_min.jpg');
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+#resultCount{
+	margin: 0;
+	padding: 1.75em;
+	padding-left: 3.75em;
+}
+
+#resultCount input {
+	width: 2em;
+	height: 2em;
+	padding-left: 0.4em;
+	/*padding: 0.5em;
+	padding-left: 0.7em;*/
+	background: #f8d408;
+	border: none;
+	border-bottom: 2pt solid #000;
+	font-size: 1.5em;
+	text-align: center;
+}
+
+/* CLASSES */
+.circle{
+	display: inline-block;
+	border-radius: 100%;
+	background-color: #fbab19;
+	height: 1em;
+	width: 1em;
+	margin: 0.75em 0.25em;
+	-webkit-animation: up 1150ms infinite ease-in-out;
+    -moz-animation: up 1150ms infinite ease-in-out;
+    animation: up 1150ms infinite ease-in-out;
+}
+
+.circle:nth-child(1){
+    -webkit-animation-delay: -0.32s;
+	animation-delay: -0.32s;
+}
+
+.circle:nth-child(2){
+    -webkit-animation-delay: -0.16s;
+	animation-delay: -0.16s;
+}
+
+.cuisine{
+	display: inline-block;
+	color: #fff;
+	background-color: #c12926;
+	margin-top: 0;
+	margin-bottom: 0.25em;
+	margin-right: 0.25em;
+	padding: 0 1em;
+	border-radius: 2pt;
+}
+
+.findFood {
+	width: 20em;
+}
+
+.hidden {
+	display: none;
+}
+
+.loading{
+	width: 100%;
+	text-align: center;
+}
+
+.locationIn{
+	margin: 0.5em;
+}
+
+.locationIn > *{
+	vertical-align: middle;
+}
+
+.locationIn input{
+	height: 3.5em;
+	width: 20em;
+	padding: 0;
+	padding-left: 1em;
+	margin-right: 0;
+	border: none;
+	border-radius: 2pt;
+}
+
+.locationIn button{
+	height: 3.5em;
+	width: 3.5em;
+	margin-left: -0.5em;
+	border: none;
+	border-radius: 2pt;
+	background: url('../images/search.svg');
+	background-size: 2.5em;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-color: #000;
+	background-color: rgba(0,0,0,0.6);
+}
+
+.restaurant {
+	padding: 0.5em 0.75em;
+	background-color: #fff;
+	margin: 0.75em;
+	border-radius: 2pt;
+	box-shadow: 2px 2px 8px #5d5d5d;
+}
+
+.slideUp {
+	transform: translate(0, -110vh);
+	-webkit-transform: translate(0, -110vh);
+	-ms-transform: translate(0, -110vh);
+}
+
+/* MEDIA QUERIES */
+@media screen and (max-width: 310px){
+	#overlay .findFood{
+		width: 90%;
+	}
+
+	#overlay .circle {
+		width: 0.5em;
+		height: 0.5em;
+	}
+}
+
+@media screen and (min-width: 650px){
+	#overlay-img{
+		width: 650px;
+	}
+	#overlay:after {
+		border-right: 650px solid transparent;
+	}
+}
+
+/* ANIMATIONS */
+
+@keyframes up{
+	0% {
+		transform: translate(0, 10px);
+	}
+	50% {
+		transform: translate(0, -10px);
+	}
+	100% {
+		transform: translate(0, 10px);
+	}
+}
+
+@keyframes down{
+	0% {
+		transform: translate(0, -10px);
+	}
+	50% {
+		transform: translate(0, 10px);
+	}
+	100% {
+		transform: translate(0, -10px);
+	}
+}
+
